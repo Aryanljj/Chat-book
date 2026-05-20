@@ -2,332 +2,183 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chat Book 💬 | Made by Aryy & Hirdesh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>RAJA VIP - Color Prediction</title>
 <style>
-:root {
-  --bg1: #ff758c;
-  --bg2: #ff7eb3;
-  --header: #ff3366;
-  --msg-right: #ff9db6;
-  --msg-left: #ffe6ee;
-  --text-color: #000;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#eef1f8;padding-bottom:90px;}
+.page{display:none;min-height:100vh;}
+.active-page{display:block;}
+.logo{display:flex;justify-content:center;align-items:center;}
+.logo h1{background:#1456db;color:#ffd400;padding:12px 28px;border-radius:18px;font-size:30px;border:3px solid white;}
+.btn{width:100%;height:55px;border:none;border-radius:30px;background:#ffd400;font-size:20px;font-weight:bold;cursor:pointer;margin-top:20px;}
+.card{background:white;border-radius:18px;padding:15px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.top{background:#ffd400;padding:25px;padding-bottom:60px;}
+.top h2{font-size:48px;color:white;margin-top:25px;}
+.top p{color:white;margin-top:10px;}
+.form-box{width:92%;margin:auto;margin-top:-35px;}
+.input-box{margin-top:18px;}
+.input-box label{display:block;font-weight:bold;margin-bottom:8px;}
+.input{width:100%;height:55px;border:none;border-radius:15px;padding-left:15px;font-size:16px;background:#f5f5f5;}
+.phone-row{display:flex;gap:10px;}
+.code{width:28%;}.number{width:72%;}
+.agree{display:flex;gap:10px;margin-top:18px;font-size:14px;}
+.bottom-nav{position:fixed;bottom:0;left:0;width:100%;height:70px;background:white;display:none;justify-content:space-around;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,0.1);z-index:999;}
+.bottom-item{font-size:16px;font-weight:bold;color:#666;cursor:pointer;}
+.bottom-item.active{color:#ffd400;}
+.header{background:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+.balance{font-weight:bold;font-size:22px;color:#1456db;}
+.account-box{width:92%;margin:20px auto;}
+.profile{background:#ffd400;padding:20px;border-radius:20px;display:flex;align-items:center;gap:15px;color:white;}
+.wallet-row{display:flex;justify-content:space-around;margin-top:20px;text-align:center;cursor:pointer;}
+.account-item{margin-top:12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:12px;background:#f5f5f5;border-radius:12px;}
 
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: hidden;
-  color: var(--text-color);
-}
+/* Modal Styles */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:9999;}
+.modal-content{background:white;width:90%;max-width:380px;border-radius:20px;padding:20px;text-align:center;max-height:80vh;overflow-y:auto;}
+.close-modal{float:right;font-size:28px;cursor:pointer;}
 
-/* ===== HEADER ===== */
-.top-banner {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  text-align: center;
-  padding: 12px;
-  font-size: 22px;
-  color: white;
-  font-weight: bold;
-  letter-spacing: 1px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 100;
-}
+/* Win/Loss Modal */
+.result-modal-content{background:linear-gradient(145deg,#0a0e1a,#0c1120);color:white;}
+.win-text{color:#4ade80;font-size:36px;margin:15px 0;}
+.loss-text{color:#ff4444;font-size:36px;margin:15px 0;}
 
-/* ===== INTRO CARD ===== */
-.container {
-  text-align: center;
-  background: rgba(255,255,255,0.9);
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  width: 340px;
-  margin-top: 80px;
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-h2 {
-  color: var(--header);
-  margin-bottom: 15px;
-  font-size: 1.5em;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-input[type="file"],
-input[type="text"] {
-  width: 85%;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid var(--header);
-  margin: 6px 0;
-  outline: none;
-  font-size: 14px;
-  text-align: center;
-  background: #fff0f6;
-}
-
-button {
-  background: var(--header);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-  margin: 6px;
-}
-button:hover {transform: scale(1.05);}
-
-/* ===== CHAT BOX ===== */
-.chat-box {
-  width: 370px;
-  height: 620px;
-  background: white;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-  margin-top: 90px;
-}
-
-.header {
-  background: var(--header);
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 1.1em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
-}
-
-.header img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-}
-
-.theme-btn, .clear-btn {
-  position: absolute;
-  top: 10px;
-  background: white;
-  color: var(--header);
-  border: 2px solid var(--header);
-  border-radius: 8px;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 4px 8px;
-}
-.theme-btn { right: 10px; }
-.clear-btn { left: 10px; }
-
-.messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #fff6f9;
-}
-
-.msg {
-  padding: 10px 15px;
-  border-radius: 15px;
-  max-width: 75%;
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.left { align-self: flex-start; background: var(--msg-left);}
-.right { align-self: flex-end; background: var(--msg-right); color: white;}
-
-.input-area {
-  display:flex;
-  border-top:2px solid #ffd1dc;
-  padding:5px;
-  gap:5px;
-  background: #fff0f6;
-}
-.input-area input {
-  flex:1;
-  border:none;
-  padding:10px;
-  font-size:14px;
-  outline:none;
-  border-radius:10px;
-  background:#fff;
-}
-
-.heart {
-  font-size:24px;
-  position:absolute;
-  animation:floatUp 3s linear infinite;
-}
-@keyframes floatUp {
-  from{transform:translateY(0);opacity:1;}
-  to{transform:translateY(-200px);opacity:0;}
-}
-
-.save-btn {
-  background:#007bff;
-  color:white;
-  margin:8px;
-  border-radius:12px;
-  font-weight:bold;
-  width:90%;
-  align-self:center;
-  transition:0.3s;
-}
-.save-btn:hover{transform:scale(1.05);}
+/* Game Styles */
+.game-container{width:94%;margin:auto;}
+.game-header{background:#ffd400;padding:15px;border-radius:15px;display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;}
+.timer-box{background:white;border-radius:15px;padding:15px;text-align:center;margin-bottom:15px;}
+.timer{font-size:48px;font-weight:bold;color:#ffd400;}
+.period-btns{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap;}
+.period-btn{flex:1;padding:10px;border:none;border-radius:10px;background:#ddd;cursor:pointer;font-size:12px;}
+.period-btn.active{background:#ffd400;}
+.color-row{display:flex;gap:10px;margin-bottom:15px;}
+.color-btn{flex:1;height:50px;border:none;border-radius:15px;font-size:18px;font-weight:bold;color:white;cursor:pointer;}
+.green{background:#00b96b;}.red{background:#ff4d4f;}.violet{background:#b455ff;}
+.big-small{display:flex;gap:2px;margin-bottom:15px;}
+.big-small button{flex:1;height:55px;border:none;font-size:22px;font-weight:bold;color:white;cursor:pointer;}
+.big-btn{background:#d8841c;border-radius:30px 0 0 30px;}
+.small-btn{background:#3a7bdb;border-radius:0 30px 30px 0;}
+.number-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px;}
+.number-btn{background:#1456db;color:white;padding:15px;border:none;border-radius:15px;font-size:20px;font-weight:bold;cursor:pointer;}
+.multipliers{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:15px;}
+.multiplier{background:#ddd;padding:8px 15px;border-radius:10px;cursor:pointer;}
+.random-btn{background:#ffd400;padding:12px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;width:100%;margin-bottom:15px;}
+.history-table{background:white;border-radius:15px;overflow:hidden;margin-bottom:15px;}
+.history-head{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:#333;color:white;padding:10px;}
+.history-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px;border-bottom:1px solid #eee;}
+.tabs{display:flex;gap:5px;margin-bottom:15px;}
+.tab{flex:1;padding:10px;text-align:center;background:#ddd;border-radius:10px;cursor:pointer;}
+.tab.active{background:#ffd400;}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:15px;}
+.game-card{background:white;border-radius:18px;overflow:hidden;cursor:pointer;text-align:center;padding:15px;}
+.game-card img{width:100%;height:150px;object-fit:cover;border-radius:15px;}
+.deposit-amount-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:20px 0;}
+.deposit-amount-btn{background:#1456db;color:white;padding:12px 20px;border-radius:12px;font-size:18px;font-weight:bold;border:none;cursor:pointer;min-width:80px;}
+.withdraw-tabs{display:flex;gap:10px;margin:15px 0;}
+.withdraw-tab{flex:1;padding:12px;text-align:center;background:#ddd;border-radius:12px;cursor:pointer;}
+.withdraw-tab.active{background:#ffd400;}
+.withdraw-info{display:flex;justify-content:space-between;margin:10px 0;padding:8px;background:#f5f5f5;border-radius:10px;}
+.withdraw-conditions{margin-top:15px;padding:12px;background:#f5f5f5;border-radius:12px;}
 </style>
 </head>
 <body>
 
-<div class="top-banner">💬 Chat Book — Made by Aryy & Hirdesh 💖</div>
+<!-- REGISTER PAGE -->
+<div class="page active-page" id="registerPage">
+<div class="top"><div class="logo"><h1>RAJA VIP</h1></div><h2>Register</h2><p>Please register by phone number or email</p></div>
+<div class="form-box">
+<div class="input-box"><label>Phone number</label><div class="phone-row"><input class="input code" value="+91"><input class="input number" id="phoneInput" placeholder="Phone number"></div></div>
+<div class="input-box"><label>Password</label><input type="password" class="input" id="passwordInput" placeholder="Set password"></div>
+<div class="input-box"><label>Confirm password</label><input type="password" class="input" id="confirmInput" placeholder="Confirm password"></div>
+<div class="input-box"><label>Invite code</label><input class="input" id="inviteCodeInput" value="5376197784723"></div>
+<div class="agree"><input type="checkbox" id="agreeCheck" checked><span>I have read and agree Privacy Agreement</span></div>
+<button class="btn" onclick="registerUser()">Register</button>
+<p class="login-text" style="text-align:center;margin-top:15px">Already have account? <span onclick="showLogin()" style="color:#ffd400;cursor:pointer;">Login</span></p>
+</div></div>
 
-<!-- Name Input Page -->
-<div class="container" id="namePage">
-  <h2>💞 Welcome to Chat Book 💞</h2>
-  <p style="font-size:13px; color:#555;">Create your cute love chat & save it forever 💌</p>
-  <input type="text" id="name1" placeholder="Your Name 💖">
-  <input type="file" id="photo1" accept="image/*">
-  <input type="text" id="name2" placeholder="Partner Name 💘">
-  <input type="file" id="photo2" accept="image/*">
-  <button onclick="startChat()">Start Chat</button>
+<!-- LOGIN PAGE -->
+<div class="page" id="loginPage">
+<div class="top"><div class="logo"><h1>RAJA VIP</h1></div><h2>Log in</h2><p>Please log in with your phone number</p></div>
+<div class="form-box">
+<div class="input-box"><label>Phone number</label><div class="phone-row"><input class="input code" value="+91"><input class="input number" id="loginPhoneInput" placeholder="Phone number"></div></div>
+<div class="input-box"><label>Password</label><input type="password" class="input" id="loginPasswordInput" placeholder="Password"></div>
+<div class="agree"><input type="checkbox" id="rememberCheck"><span>Remember password</span></div>
+<button class="btn" onclick="loginUser()">Log in</button>
+<p class="login-text" style="text-align:center;margin-top:15px">No account? <span onclick="showRegister()" style="color:#ffd400;cursor:pointer;">Register</span></p>
+</div></div>
+
+<!-- HOME PAGE -->
+<div class="page" id="homePage">
+<div class="header"><div class="logo"><h1 style="font-size:22px;">RAJA VIP</h1></div><div class="balance">💰 ₹<span id="balanceAmount">28</span>.00</div></div>
+<div class="card" style="width:92%;margin:15px auto;text-align:center"><h3>🎁 FIRST RECHARGE BONUS UP TO 2X</h3><button onclick="openDepositSelector()" style="background:#ffd400;border:none;padding:10px;border-radius:20px;margin-top:10px;">Deposit Now</button></div>
+<div class="card" style="width:92%;margin:15px auto;text-align:center;background:#ffd400;"><p style="color:#333">Please Fill In The Correct Bank Card Information. The Platform Will Process Withdrawal.</p></div>
+<div class="tabs" style="width:92%;margin:auto"><div class="tab active" onclick="showGameTab('lottery')">Lottery</div><div class="tab" onclick="showGameTab('original')">Original</div><div class="tab" onclick="showGameTab('slots')">Slots</div><div class="tab" onclick="showGameTab('fishing')">Fishing</div><div class="tab" onclick="showGameTab('pv')">PV</div></div>
+<div id="gameGrid" style="padding:15px"></div>
+<div class="card" style="width:92%;margin:15px auto;text-align:center"><p>The games are independently developed by our team, fun, fair, and safe.</p><button onclick="showMessage('Add to home screen')" style="background:#ffd400;border:none;padding:10px;border-radius:20px;margin-top:10px;">Get ₹28 Add to Desktop</button></div>
 </div>
 
-<!-- Chat Box -->
-<div class="chat-box" id="chatBox">
-  <div class="header" id="headerNames">
-    <button class="clear-btn" onclick="clearChat()">🧹</button>
-    <img id="img1" src="" alt="">
-    <span id="namesText">Chat Book 💕</span>
-    <img id="img2" src="" alt="">
-    <button class="theme-btn" onclick="changeTheme()">🎨</button>
-  </div>
-
-  <div class="messages" id="messages"></div>
-
-  <div class="input-area">
-    <input type="text" id="inputMsg" placeholder="Type message...">
-    <button onclick="sendMsg('right')">💖 You</button>
-    <button onclick="sendMsg('left')">💘 Partner</button>
-  </div>
-
-  <button class="save-btn" onclick="saveChatFile()">💾 Save Chat (.txt)</button>
+<!-- ACTIVITY PAGE -->
+<div class="page" id="activityPage">
+<div class="top"><div class="logo"><h1>RAJA VIP</h1></div><div style="display:flex;justify-content:space-around;margin-top:20px;color:white"><div><p>Today's bonus</p><h2>₹0</h2></div><div><p>Total bonus</p><h2>₹0</h2></div></div><button style="background:white;border:none;padding:10px 20px;border-radius:20px;margin-top:15px" onclick="showMessage('Bonus details')">Bonus details</button></div>
+<div class="card" style="width:92%;margin:15px auto"><div class="account-item" onclick="showMessage('Activity Award')">Activity Award <span>›</span></div><div class="account-item" onclick="showMessage('Invitation bonus')">Invitation bonus <span>›</span></div><div class="account-item" onclick="showMessage('Betting rebate')">Betting rebate <span>›</span></div><div class="account-item" onclick="showMessage('Super Jackpot')">Super Jackpot <span>›</span></div><div class="account-item" onclick="showMessage('Invite Wheel')">🎡 Invite Wheel <span>›</span></div></div>
+<div class="card" style="width:92%;margin:15px auto"><h3>🎁 Gifts</h3><input type="text" id="giftCode" placeholder="Enter redemption code" class="input"><button onclick="redeemGift()" class="btn" style="margin-top:10px">Receive</button></div>
+<div class="card" style="width:92%;margin:15px auto;text-align:center"><h3>📅 Attendance bonus</h3><p>Consecutive days: <span id="attendanceDays">0</span></p><button onclick="checkIn()" class="btn">Check In</button></div>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2023/02/10/audio_c2d4b8b8be.mp3" type="audio/mpeg">
-</audio>
+<!-- PROMOTION PAGE -->
+<div class="page" id="promotionPage">
+<div class="top"><div class="logo"><h1>RAJA VIP</h1></div><h2 style="color:white;margin-top:20px">Agency</h2></div>
+<div class="card" style="width:92%;margin:15px auto"><h3>Yesterday's total commission: ₹0</h3><p>Upgrade level to increase commission income</p></div>
+<div class="card" style="width:92%;margin:15px auto"><h3>Direct subordinates</h3><div class="account-item">number of register: 0</div><div class="account-item">Deposit number: 0</div></div>
+<div class="card" style="width:92%;margin:15px auto"><div class="account-item" onclick="copyInviteCode()">📋 Copy invitation code: <span id="inviteCodeDisplay">RAJ123</span> <span>›</span></div><div class="account-item" onclick="showQRInviteModal()">📱 Download QR Code <span>›</span></div></div>
+<button class="btn" style="width:92%;margin:auto;display:block" onclick="showQRInviteModal()">Invite Friends - Earn Commission</button>
+</div>
 
-<script>
-const chatBox=document.getElementById("chatBox");
-const namePage=document.getElementById("namePage");
-const headerNames=document.getElementById("namesText");
-const bgMusic=document.getElementById("bgMusic");
-const messages=document.getElementById("messages");
-const input=document.getElementById("inputMsg");
-const img1=document.getElementById("img1");
-const img2=document.getElementById("img2");
+<!-- ACCOUNT PAGE -->
+<div class="page" id="accountPage">
+<div class="account-box"><div class="profile"><img src="https://i.pravatar.cc/100"><div><h2 id="userNameDisplay">MEMBER502</h2><p>UID: <span id="userIdDisplay">7784870</span></p></div></div>
+<div class="card"><p>Total balance</p><h1>₹<span id="balanceAmount2">28</span>.00</h1><div class="wallet-row"><div onclick="showMessage('Wallet: ₹'+balance)">💼 Wallet</div><div onclick="openDepositSelector()">💳 Deposit</div><div onclick="openWithdraw()">💸 Withdraw</div><div onclick="showMessage('VIP Club - Coming Soon')">👑 VIP</div></div></div>
+<div class="card account-item" onclick="showGameHistory()">🎮 Game History <span>›</span></div>
+<div class="card account-item" onclick="showDepositHistory()">💰 Deposit History <span>›</span></div>
+<div class="card account-item" onclick="showWithdrawHistory()">💸 Withdraw History <span>›</span></div>
+<div class="card account-item" onclick="showMessage('Notification')">🔔 Notification <span>›</span></div>
+<div class="card account-item" onclick="openGiftModal()">🎁 Gifts <span>›</span></div>
+<div class="card account-item" onclick="showMessage('Settings')">⚙️ Settings <span>›</span></div>
+<div class="card account-item" onclick="showMessage('Customer Service')">💬 Customer Service <span>›</span></div>
+<button class="btn" onclick="logoutUser()">🚪 Log out</button>
+</div></div>
 
-let themeIndex=0;
-const themes=[
-  {bg1:"#ff758c", bg2:"#ff7eb3", header:"#ff3366", left:"#ffe6ee", right:"#ff9db6", text:"#000"},
-  {bg1:"#89f7fe", bg2:"#66a6ff", header:"#1e90ff", left:"#dbeafe", right:"#3399ff", text:"#000"},
-  {bg1:"#232526", bg2:"#414345", header:"#000", left:"#333", right:"#555", text:"#fff"}
-];
+<!-- WITHDRAW PAGE -->
+<div class="page" id="withdrawPage">
+<div class="header"><div class="logo"><h1 style="font-size:22px;">RAJA VIP</h1></div><div onclick="showPage('accountPage')" style="cursor:pointer">🏠 Back</div></div>
+<div class="card" style="width:92%;margin:15px auto"><h3>Available balance</h3><h1>₹<span id="withdrawBalance">28</span>.00</h1></div>
+<div class="withdraw-tabs" style="width:92%;margin:auto"><div class="withdraw-tab active" onclick="selectWithdrawMethod('bank')">🏦 BANKS CARD</div><div class="withdraw-tab" onclick="selectWithdrawMethod('upi')">📱 UPI</div><div class="withdraw-tab" onclick="selectWithdrawMethod('usdt')">🪙 USDT</div></div>
+<div id="withdrawMethodForm" style="width:92%;margin:15px auto"><div class="input-box"><label>Bank Name</label><input type="text" id="bankName" class="input" placeholder="Enter bank name"></div><div class="input-box"><label>Account Number</label><input type="text" id="accountNumber" class="input" placeholder="Enter account number"></div><div class="input-box"><label>IFSC Code</label><input type="text" id="ifscCode" class="input" placeholder="Enter IFSC code"></div><div class="input-box"><label>Confirm Account Number</label><input type="text" id="confirmAccount" class="input" placeholder="Re-enter account number"></div></div>
+<div class="card" style="width:92%;margin:15px auto"><p><strong>Please enter the amount</strong></p><div class="withdraw-info"><span>Withdrawable balance</span><span>₹<span id="withdrawableBalance">0</span>.00</span></div><input type="number" id="withdrawAmountInput" class="input" placeholder="Enter amount" style="margin:15px 0"><button class="btn" onclick="submitWithdrawRequest()">Withdraw</button></div>
+<div class="withdraw-conditions" style="width:92%;margin:15px auto"><p>⚠️ Need to bet ₹<span id="needBet">0</span>.00 to withdraw</p><p>⏰ Withdraw time: 00:00 - 23:59</p><p>📊 Amount range: ₹110 - ₹50,000</p></div>
+</div>
 
-function startChat(){
-  const n1=document.getElementById("name1").value.trim();
-  const n2=document.getElementById("name2").value.trim();
-  const p1=document.getElementById("photo1").files[0];
-  const p2=document.getElementById("photo2").files[0];
-  if(!n1 || !n2){alert("Enter both names 💕"); return;}
-  if(p1){img1.src=URL.createObjectURL(p1);}
-  if(p2){img2.src=URL.createObjectURL(p2);}
-  namePage.style.display="none";
-  chatBox.style.display="flex";
-  headerNames.textContent=`${n1} 💖 ${n2}`;
-  bgMusic.play().catch(()=>{});
-  loadChat();
-}
+<!-- WIN GO GAME PAGE -->
+<div class="page" id="winGoPage">
+<div class="game-container">
+<div class="game-header"><div class="logo"><h1 style="font-size:20px;">RAJA VIP</h1></div><div class="balance">₹<span id="gameBalance">28</span>.00</div><div onclick="showPage('homePage')" style="cursor:pointer">🏠 Home</div></div>
+<div class="timer-box"><p>Time remaining</p><div class="timer" id="timerDisplay">0:00:30</div><p id="periodNumber"></p></div>
+<div class="period-btns"><button class="period-btn" onclick="setGamePeriod(30)">Win Go 30Sec</button><button class="period-btn" onclick="setGamePeriod(60)">Win Go 1Min</button><button class="period-btn" onclick="setGamePeriod(180)">Win Go 3Min</button><button class="period-btn" onclick="setGamePeriod(300)">Win Go 5Min</button></div>
+<div class="color-row"><button class="color-btn green" onclick="openBetModal('Green')">Green</button><button class="color-btn violet" onclick="openBetModal('Violet')">Violet</button><button class="color-btn red" onclick="openBetModal('Red')">Red</button></div>
+<div class="number-grid" id="numberGrid"></div>
+<div class="big-small"><button class="big-btn" onclick="openBetModal('Big')">Big</button><button class="small-btn" onclick="openBetModal('Small')">Small</button></div>
+<div class="multipliers"><span class="multiplier" onclick="setMultiplier(1)">X1</span><span class="multiplier" onclick="setMultiplier(5)">X5</span><span class="multiplier" onclick="setMultiplier(10)">X10</span><span class="multiplier" onclick="setMultiplier(20)">X20</span><span class="multiplier" onclick="setMultiplier(50)">X50</span><span class="multiplier" onclick="setMultiplier(100)">X100</span></div>
+<button class="random-btn" onclick="randomNumber()">🎲 Random</button>
+<div class="history-table"><div class="history-head"><div>Period</div><div>Number</div><div>Big Small</div><div>Color</div></div><div id="gameHistoryRows"></div></div>
+<div class="pagination" style="text-align:center;padding:10px;color:#666">1/39461</div>
+</div></div>
 
-function sendMsg(side){
-  const text=input.value.trim();
-  if(!text) return;
-  addMessage(side,text);
-  input.value="";
-  messages.scrollTop=messages.scrollHeight;
-  createHeart();
-}
+<!-- DEPOSIT MODALS -->
+<div id="depositSelectorModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('depositSelectorModal')">&times;</span><h3>💰 Select Deposit Amount</h3><div class="deposit-amount-grid"><button class="deposit-amount-btn" onclick="selectDepositAmount(200)">₹200</button><button class="deposit-amount-btn" onclick="selectDepositAmount(500)">₹500</button><button class="deposit-amount-btn" onclick="selectDepositAmount(1000)">₹1,000</button><button class="deposit-amount-btn" onclick="selectDepositAmount(2000)">₹2,000</button><button class="deposit-amount-btn" onclick="selectDepositAmount(5000)">₹5,000</button><button class="deposit-amount-btn" onclick="selectDepositAmount(10000)">₹10,000</button></div></div></div>
+<div id="depositPaymentModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('depositPaymentModal')">&times;</span><h3>India Payment</h3><p>Amount to Pay: <strong>₹<span id="finalPayAmount">200</span></strong></p><img src="https://i.ibb.co/PGPbgDsw/IMG-20260518-141051.png" style="width:200px;margin:10px auto;display:block;border-radius:10px"><p>UPI ID: <strong>ali.azim@freecharge</strong> <button onclick="copyUPI()" style="background:#ffd400;border:none;padding:5px 10px;border-radius:5px">COPY</button></p><input type="text" id="utrInput" placeholder="Enter UTR (12 digits)" class="input"><button onclick="submitDepositPayment()" class="btn">Confirm Payment</button></div></div>
 
-function addMessage(side,text){
-  const msg=document.createElement("div");
-  msg.className="msg "+side;
-  msg.textContent=text;
-  messages.appendChild(msg);
-  saveChat();
-}
+<!-- BET MODAL -->
+<div id="betModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('betModal')">&times;</span><h3 id="betModalTitle">Place Bet</h3><div style="display:flex;flex-wrap:wrap;gap:10px;margin:15px 0"><button style="flex:1;padding:10px;background:#ffd400;border:none;border-radius:10px" onclick="placeBet(10)">₹10</button><button style="flex:1;padding:10px;background:#ffd400;border:none;border-radius:10px" onclick="placeBet(50)">₹50</button><button style="flex:1;padding:10px;background:#ffd400;border:none;border-radius:10px" onclick="placeBet(100)">₹100</button><button style="flex:1;padding:10px;background:#ffd400;border:none;border-radius:10px" onclick="placeBet(500)">₹500</button><button style="flex:1;padding:10px;background:#ffd400;border:none;border-radius:10px" onclick="placeBet(1000)">₹1000</button></div><button onclick="closeModal('betModal')" class="btn">Cancel</button></div></div>
 
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.textContent="💖";
-  heart.style.left=Math.random()*100+"%";
-  heart.style.top="80%";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),3000);
-}
-
-function saveChat(){localStorage.setItem("loveChat",messages.innerHTML);}
-function loadChat(){const saved=localStorage.getItem("loveChat"); if(saved) messages.innerHTML=saved;}
-function clearChat(){if(confirm("Clear chat? 💔")){localStorage.removeItem("loveChat"); messages.innerHTML="";}}
-function changeTheme(){
-  themeIndex=(themeIndex+1)%themes.length;
-  const t=themes[themeIndex];
-  document.documentElement.style.setProperty("--bg1",t.bg1);
-  document.documentElement.style.setProperty("--bg2",t.bg2);
-  document.documentElement.style.setProperty("--header",t.header);
-  document.documentElement.style.setProperty("--msg-left",t.left);
-  document.documentElement.style.setProperty("--msg-right",t.right);
-  document.documentElement.style.setProperty("--text-color",t.text);
-}
-
-function saveChatFile(){
-  const allMsgs=[...document.querySelectorAll(".msg")]
-    .map(m=>(m.classList.contains("right")?"You 💖: ":"Partner 💘: ")+m.textContent)
-    .join("\n");
-  const blob=new Blob([allMsgs],{type:"text/plain"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="Chat_Book_Aryy_Hirdesh.txt";
-  a.click();
-}
-</script>
-</body>
-</html>
+<!-- RESULT MODAL -->
+<div id="resultModal" class="modal"><div class="modal-content result-modal-content"><span class="close-modal" onclick="closeModal('resultModal')" style="color:white">&times;</span><div id="resultIcon" style="font-size:60px;margin:15px 0">🎉</div><h2 id="resultTitle" class="win-text">YOU WIN
