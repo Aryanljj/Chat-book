@@ -1,203 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Admin Panel - RAJA VIP</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#0a0e1a;padding:20px;color:white;}
-.container{max-width:1200px;margin:auto;}
-h1{color:#ffd400;margin-bottom:20px;}
-.card{background:#1e2a3a;border-radius:15px;padding:20px;margin-bottom:20px;}
-table{width:100%;border-collapse:collapse;}
-th,td{padding:12px;text-align:left;border-bottom:1px solid #333;}
-th{background:#ffd400;color:#1456db;}
-button{background:#ffd400;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:bold;}
-.approve-btn{background:#4ade80;color:#000;}
-.reject-btn{background:#ff4444;color:#fff;}
-.tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-.tab{background:#333;padding:10px 20px;border-radius:10px;cursor:pointer;}
-.tab.active{background:#ffd400;color:#1456db;}
-.hidden{display:none;}
-input,select{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;}
-</style>
+    <title>Admin Panel - RAJA VIP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{background:#0a0e1a;color:white;font-family:Arial;padding:20px;}
+        .card{background:#1e2a3a;padding:20px;border-radius:15px;margin-bottom:20px;}
+        button{background:#ffd400;padding:8px 15px;border:none;border-radius:8px;cursor:pointer;}
+        input{padding:10px;margin:10px 0;width:100%;border-radius:8px;border:none;}
+        table{width:100%;border-collapse:collapse;}
+        th,td{padding:10px;text-align:left;border-bottom:1px solid #333;}
+        th{background:#ffd400;color:#1456db;}
+        .tab{background:#333;padding:10px 20px;display:inline-block;border-radius:10px;cursor:pointer;margin-right:10px;}
+        .tab.active{background:#ffd400;color:#1456db;}
+        .hidden{display:none;}
+    </style>
 </head>
 <body>
-<div class="container">
 <h1>👑 RAJA VIP - Admin Panel</h1>
-
-<div class="tabs">
-<div class="tab active" onclick="showTab('users')">👥 Users</div>
-<div class="tab" onclick="showTab('deposits')">💰 Deposit Requests</div>
-<div class="tab" onclick="showTab('withdraws')">💸 Withdraw Requests</div>
-<div class="tab" onclick="showTab('addBalance')">➕ Add Balance</div>
+<div>
+    <span class="tab active" onclick="showTab('users')">👥 Users</span>
+    <span class="tab" onclick="showTab('deposits')">💰 Deposits</span>
+    <span class="tab" onclick="showTab('withdraws')">💸 Withdraws</span>
+    <span class="tab" onclick="showTab('add')">➕ Add Balance</span>
 </div>
 
-<!-- USERS SECTION -->
 <div id="usersTab" class="card">
-<h2>📋 All Users</h2>
-<div style="overflow-x:auto;">
-<table id="usersTable">
-<thead><tr><th>Phone</th><th>Balance (₹)</th><th>Invite Code</th><th>Total Bet</th><th>Action</th></tr></thead>
-<tbody id="usersList"></tbody>
-\dash
-</div>
+    <h2>All Users</h2>
+    <div id="usersList"></div>
 </div>
 
-<!-- DEPOSIT REQUESTS SECTION -->
 <div id="depositsTab" class="card hidden">
-<h2>💰 Pending Deposit Requests</h2>
-<table id="depositsTable">
-<thead><tr><th>User</th><th>Amount (₹)</th><th>UTR</th><th>Time</th><th>Action</th></tr></thead>
-<tbody id="depositsList"></tbody>
-\dash
+    <h2>Deposit Requests</h2>
+    <div id="depositsList"></div>
 </div>
 
-<!-- WITHDRAW REQUESTS SECTION -->
 <div id="withdrawsTab" class="card hidden">
-<h2>💸 Pending Withdraw Requests</h2>
-<table id="withdrawsTable">
-<thead><tr><th>User</th><th>Amount (₹)</th><th>Bank/UPI</th><th>Time</th><th>Action</th></tr></thead>
-<tbody id="withdrawsList"></tbody>
-\dash
+    <h2>Withdraw Requests</h2>
+    <div id="withdrawsList"></div>
 </div>
 
-<!-- ADD BALANCE SECTION -->
-<div id="addBalanceTab" class="card hidden">
-<h2>➕ Manually Add Balance</h2>
-<input type="text" id="adminPhone" placeholder="User Phone Number">
-<input type="number" id="adminAmount" placeholder="Amount to Add">
-<button onclick="addManualBalance()">Add Balance</button>
-</div>
-
+<div id="addTab" class="card hidden">
+    <h2>Add Balance Manually</h2>
+    <input type="text" id="phone" placeholder="User Phone Number">
+    <input type="number" id="amount" placeholder="Amount to Add">
+    <button onclick="addBalance()">Add Balance</button>
 </div>
 
 <script>
-function getUsers() { return JSON.parse(localStorage.getItem("users") || "{}"); }
-function saveUsers(users) { localStorage.setItem("users", JSON.stringify(users)); }
-function getDepositRequests() { return JSON.parse(localStorage.getItem("depositRequests") || "[]"); }
-function saveDepositRequests(requests) { localStorage.setItem("depositRequests", JSON.stringify(requests)); }
-function getWithdrawRequests() { return JSON.parse(localStorage.getItem("withdrawRequests") || "[]"); }
-function saveWithdrawRequests(requests) { localStorage.setItem("withdrawRequests", JSON.stringify(requests)); }
+function getUsers(){return JSON.parse(localStorage.getItem("users")||"{}");}
+function saveUsers(u){localStorage.setItem("users",JSON.stringify(u));}
+function getDeposits(){return JSON.parse(localStorage.getItem("depositRequests")||"[]");}
+function saveDeposits(d){localStorage.setItem("depositRequests",JSON.stringify(d));}
+function getWithdraws(){return JSON.parse(localStorage.getItem("withdrawRequests")||"[]");}
+function saveWithdraws(w){localStorage.setItem("withdrawRequests",JSON.stringify(w));}
 
-function showTab(tabName) {
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+function showTab(t){
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
     event.target.classList.add("active");
     document.getElementById("usersTab").classList.add("hidden");
     document.getElementById("depositsTab").classList.add("hidden");
     document.getElementById("withdrawsTab").classList.add("hidden");
-    document.getElementById("addBalanceTab").classList.add("hidden");
-    document.getElementById(tabName + "Tab").classList.remove("hidden");
-    if(tabName === "users") loadUsers();
-    if(tabName === "deposits") loadDeposits();
-    if(tabName === "withdraws") loadWithdraws();
+    document.getElementById("addTab").classList.add("hidden");
+    document.getElementById(t+"Tab").classList.remove("hidden");
+    if(t=="users") loadUsers();
+    if(t=="deposits") loadDeposits();
+    if(t=="withdraws") loadWithdraws();
 }
 
-function loadUsers() {
-    let users = getUsers();
-    let html = "";
-    for(let phone in users) {
-        html += `<tr>
-                    <td>${phone}</td>
-                    <td>₹${users[phone].balance || 0}</td>
-                    <td>${users[phone].inviteCode || "N/A"}</td>
-                    <td>${users[phone].totalBet || 0}</td>
-                    <td><button onclick="editUser('${phone}')">📝 Edit</button></td>
-                </tr>`;
-    }
-    document.getElementById("usersList").innerHTML = html || `<tr><td colspan='5'>No users found</td></tr>`;
+function loadUsers(){
+    let u=getUsers(), html="<table><tr><th>Phone</th><th>Balance</th><th>Action</th></tr>";
+    for(let p in u) html+=`<tr><td>${p}</td><td>₹${u[p].balance||0}</td><td><button onclick="edit('${p}')">Edit</button></td></tr>`;
+    html+="</table>";
+    document.getElementById("usersList").innerHTML=html;
+}
+function edit(p){
+    let amt=prompt("Enter new balance for "+p);
+    if(amt){let u=getUsers(); u[p].balance=parseFloat(amt); saveUsers(u); loadUsers(); alert("Updated!");}
 }
 
-function editUser(phone) {
-    let newBalance = prompt("Enter new balance for " + phone);
-    if(newBalance !== null && !isNaN(newBalance)) {
-        let users = getUsers();
-        if(users[phone]) { users[phone].balance = parseFloat(newBalance); saveUsers(users); loadUsers(); alert("Balance updated!"); }
-    }
+function loadDeposits(){
+    let d=getDeposits(), html="<table><tr><th>User</th><th>Amount</th><th>UTR</th><th>Action</th></tr>";
+    d.forEach((x,i)=>{if(x.status=="pending") html+=`<tr><td>${x.phone}</td><td>₹${x.amount}</td><td>${x.utr||"N/A"}</td><td><button onclick="approveDeposit(${i})">Approve</button></td>`;});
+    html+="</table>";
+    document.getElementById("depositsList").innerHTML=html;
+}
+function approveDeposit(i){
+    let d=getDeposits(), r=d[i], u=getUsers();
+    if(u[r.phone]) u[r.phone].balance=(u[r.phone].balance||0)+r.amount;
+    r.status="approved";
+    saveUsers(u); saveDeposits(d);
+    loadDeposits(); loadUsers();
+    alert("✅ Deposit approved!");
 }
 
-function loadDeposits() {
-    let requests = getDepositRequests();
-    let html = "";
-    requests.forEach((req, index) => {
-        if(req.status === "pending") {
-            html += `<tr>
-                        <td>${req.phone}</td>
-                        <td>₹${req.amount}</td>
-                        <td>${req.utr || "N/A"}</td>
-                        <td>${req.time || ""}</td>
-                        <td><button class="approve-btn" onclick="approveDeposit(${index})">✅ Approve</button></td>
-                    </tr>`;
-        }
-    });
-    document.getElementById("depositsList").innerHTML = html || `<tr><td colspan='5'>No pending deposits</td></tr>`;
+function loadWithdraws(){
+    let w=getWithdraws(), html="<table><tr><th>User</th><th>Amount</th><th>Bank</th><th>Action</th></tr>";
+    w.forEach((x,i)=>{if(x.status=="pending") html+=`<tr><td>${x.phone}</td><td>₹${x.amount}</td><td>${x.bank||"N/A"}</td><td><button onclick="approveWithdraw(${i})">Approve</button> <button onclick="rejectWithdraw(${i})">Reject</button></td>`;});
+    html+="</table>";
+    document.getElementById("withdrawsList").innerHTML=html;
 }
-
-function approveDeposit(index) {
-    let requests = getDepositRequests();
-    let req = requests[index];
-    if(req && req.status === "pending") {
-        let users = getUsers();
-        if(users[req.phone]) { users[req.phone].balance = (users[req.phone].balance || 0) + req.amount; saveUsers(users); }
-        req.status = "approved";
-        saveDepositRequests(requests);
-        loadDeposits(); loadUsers();
-        alert(`✅ Deposit of ₹${req.amount} approved for ${req.phone}`);
-    }
+function approveWithdraw(i){
+    let w=getWithdraws(); w[i].status="approved"; saveWithdraws(w);
+    loadWithdraws(); alert("✅ Withdraw approved!");
 }
-
-function loadWithdraws() {
-    let requests = getWithdrawRequests();
-    let html = "";
-    requests.forEach((req, index) => {
-        if(req.status === "pending") {
-            html += `<tr>
-                        <td>${req.phone}</td>
-                        <td>₹${req.amount}</td>
-                        <td>${req.bank || req.account || "N/A"}</td>
-                        <td>${req.time || ""}</td>
-                        <td><button class="approve-btn" onclick="approveWithdraw(${index})">✅ Approve</button>
-                        <button class="reject-btn" onclick="rejectWithdraw(${index})">❌ Reject</button></td>
-                    </tr>`;
-        }
-    });
-    document.getElementById("withdrawsList").innerHTML = html || `<tr><td colspan='5'>No pending withdrawals</td></tr>`;
+function rejectWithdraw(i){
+    let w=getWithdraws(), r=w[i], u=getUsers();
+    if(u[r.phone]) u[r.phone].balance=(u[r.phone].balance||0)+r.amount;
+    r.status="rejected";
+    saveUsers(u); saveWithdraws(w);
+    loadWithdraws(); loadUsers();
+    alert("❌ Withdraw rejected! Balance refunded.");
 }
-
-function approveWithdraw(index) {
-    let requests = getWithdrawRequests();
-    let req = requests[index];
-    if(req && req.status === "pending") { req.status = "approved"; saveWithdrawRequests(requests); loadWithdraws(); alert(`✅ Withdraw of ₹${req.amount} approved for ${req.phone}`); }
-}
-
-function rejectWithdraw(index) {
-    let requests = getWithdrawRequests();
-    let req = requests[index];
-    if(req && req.status === "pending") {
-        let users = getUsers();
-        if(users[req.phone]) { users[req.phone].balance = (users[req.phone].balance || 0) + req.amount; saveUsers(users); }
-        req.status = "rejected";
-        saveWithdrawRequests(requests);
-        loadWithdraws(); loadUsers();
-        alert(`❌ Withdraw of ₹${req.amount} rejected for ${req.phone}. Balance refunded.`);
-    }
-}
-
-function addManualBalance() {
-    let phone = document.getElementById("adminPhone").value;
-    let amount = parseFloat(document.getElementById("adminAmount").value);
-    if(!phone || !amount) { alert("Enter phone and amount"); return; }
-    let users = getUsers();
-    if(!users[phone]) { alert("User not found!"); return; }
-    users[phone].balance = (users[phone].balance || 0) + amount;
-    saveUsers(users);
-    alert(`✅ ₹${amount} added to ${phone}`);
-    document.getElementById("adminPhone").value = "";
-    document.getElementById("adminAmount").value = "";
+function addBalance(){
+    let p=document.getElementById("phone").value, a=parseFloat(document.getElementById("amount").value);
+    if(!p||!a){alert("Enter phone and amount");return;}
+    let u=getUsers();
+    if(!u[p]){alert("User not found");return;}
+    u[p].balance=(u[p].balance||0)+a;
+    saveUsers(u);
+    alert(`✅ ₹${a} added to ${p}`);
+    document.getElementById("phone").value=""; document.getElementById("amount").value="";
     loadUsers();
 }
-
 loadUsers();
 </script>
 </body>
