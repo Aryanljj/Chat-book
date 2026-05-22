@@ -1,209 +1,577 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aryan Keer | Premium Web Developer</title>
+
+<title>Aryan Keer | Modern Website Developer</title>
+
+<meta name="description" content="Aryan Keer is a modern website developer creating responsive portfolio websites, gaming UI, landing pages and premium web designs.">
+
+<meta name="keywords" content="Aryan Keer, Aryan website developer, portfolio website, gaming UI design, HTML CSS developer, responsive website, frontend developer">
+
+<meta name="author" content="Aryan Keer">
+
+<meta name="robots" content="index, follow">
+
+<meta name="google-site-verification" content="FKeZ2i_pXNDLdsG_6Tad8ayuQLwzLLNhPvZgIbVKLw8" />
+
+<meta property="og:title" content="Aryan Keer | Premium Web Developer">
+<meta property="og:description" content="Modern responsive websites with premium UI and smooth design experience.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aryanljj.github.io/MR--Aryan_Lakk/">
+
+<link rel="canonical" href="https://aryanljj.github.io/MR--Aryan_Lakk/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
-}html{ scroll-behavior:smooth; }
+}
 
-body{ background:#050505; color:white; overflow-x:hidden; }
+html{
+scroll-behavior:smooth;
+}
 
-body::before{ content:''; position:fixed; width:500px; height:500px; background:#2563eb22; filter:blur(140px); top:-200px; right:-100px; z-index:-1; }
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
 
-body::after{ content:''; position:fixed; width:500px; height:500px; background:#9333ea22; filter:blur(140px); bottom:-200px; left:-100px; z-index:-1; }
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#2563eb22;
+filter:blur(140px);
+top:-200px;
+right:-100px;
+z-index:-1;
+}
 
-.navbar{ position:fixed; width:100%; top:0; padding:18px 7%; display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.55); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07); z-index:1000; }
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#9333ea22;
+filter:blur(140px);
+bottom:-200px;
+left:-100px;
+z-index:-1;
+}
 
-.logo{ font-size:28px; font-weight:800; letter-spacing:-1px; background:linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.navbar{
+position:fixed;
+width:100%;
+top:0;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.07);
+z-index:1000;
+}
 
-.nav-links{ display:flex; gap:28px; }
+.logo{
+font-size:28px;
+font-weight:800;
+letter-spacing:-1px;
+background:linear-gradient(90deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-.nav-links a{ text-decoration:none; color:#cbd5e1; font-size:15px; transition:0.3s; }
+.nav-links{
+display:flex;
+gap:28px;
+}
 
-.nav-links a:hover{ color:white; }
+.nav-links a{
+text-decoration:none;
+color:#cbd5e1;
+font-size:15px;
+transition:0.3s;
+}
 
-.hero{ min-height:100vh; display:flex; align-items:center; justify-content:space-between; padding:150px 7% 80px; gap:70px; flex-wrap:wrap; }
+.nav-links a:hover{
+color:white;
+}
 
-.hero-text{ flex:1; min-width:300px; }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:150px 7% 80px;
+gap:70px;
+flex-wrap:wrap;
+}
 
-.badge{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); margin-bottom:28px; color:#93c5fd; font-size:14px; }
+.hero-text{
+flex:1;
+min-width:300px;
+}
 
-.dot{ width:10px; height:10px; border-radius:50%; background:#22c55e; box-shadow:0 0 12px #22c55e; }
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 18px;
+border-radius:50px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+margin-bottom:28px;
+color:#93c5fd;
+font-size:14px;
+}
 
-.hero-text h1{ font-size:82px; line-height:1; letter-spacing:-4px; margin-bottom:25px; font-weight:800; }
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#22c55e;
+box-shadow:0 0 12px #22c55e;
+}
 
-.gradient{ background:linear-gradient(90deg,#60a5fa,#a855f7,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.hero-text h1{
+font-size:82px;
+line-height:1;
+letter-spacing:-4px;
+margin-bottom:25px;
+font-weight:800;
+}
 
-.hero-text p{ max-width:650px; line-height:1.9; font-size:17px; color:#94a3b8; margin-bottom:38px; }
+.gradient{
+background:linear-gradient(90deg,#60a5fa,#a855f7,#ec4899);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-.btns{ display:flex; gap:18px; flex-wrap:wrap; }
+.hero-text p{
+max-width:650px;
+line-height:1.9;
+font-size:17px;
+color:#94a3b8;
+margin-bottom:38px;
+}
 
-.btn{ padding:16px 30px; text-decoration:none; font-weight:600; border-radius:16px; transition:0.35s; }
+.btns{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
 
-.primary-btn{ background:linear-gradient(90deg,#3b82f6,#9333ea); color:white; box-shadow:0 10px 35px rgba(59,130,246,0.35); }
+.btn{
+padding:16px 30px;
+text-decoration:none;
+font-weight:600;
+border-radius:16px;
+transition:0.35s;
+}
 
-.secondary-btn{ background:rgba(255,255,255,0.04); color:white; border:1px solid rgba(255,255,255,0.08); }
+.primary-btn{
+background:linear-gradient(90deg,#3b82f6,#9333ea);
+color:white;
+box-shadow:0 10px 35px rgba(59,130,246,0.35);
+}
 
-.btn:hover{ transform:translateY(-5px); }
+.secondary-btn{
+background:rgba(255,255,255,0.04);
+color:white;
+border:1px solid rgba(255,255,255,0.08);
+}
 
-.hero-card{ width:370px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(18px); padding:35px; border-radius:32px; box-shadow:0 25px 60px rgba(0,0,0,0.4); }
+.btn:hover{
+transform:translateY(-5px);
+}
 
-.hero-card img{ width:130px; height:130px; display:block; margin:auto; border-radius:28px; margin-bottom:25px; }
+.hero-card{
+width:370px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+padding:35px;
+border-radius:32px;
+box-shadow:0 25px 60px rgba(0,0,0,0.4);
+}
 
-.hero-card h2{ text-align:center; font-size:30px; margin-bottom:10px; }
+.hero-card img{
+width:130px;
+height:130px;
+display:block;
+margin:auto;
+border-radius:28px;
+margin-bottom:25px;
+}
 
-.hero-card p{ text-align:center; color:#94a3b8; margin-bottom:30px; }
+.hero-card h2{
+text-align:center;
+font-size:30px;
+margin-bottom:10px;
+}
 
-.mini-stats{ display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.hero-card p{
+text-align:center;
+color:#94a3b8;
+margin-bottom:30px;
+}
 
-.stat{ background:#0f0f0f; padding:20px; border-radius:20px; text-align:center; border:1px solid rgba(255,255,255,0.06); }
+.mini-stats{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
 
-.stat h3{ font-size:34px; margin-bottom:6px; background:linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.stat{
+background:#0f0f0f;
+padding:20px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.06);
+}
 
-section{ padding:110px 7%; }
+.stat h3{
+font-size:34px;
+margin-bottom:6px;
+background:linear-gradient(90deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-.section-title{ text-align:center; margin-bottom:70px; }
+section{
+padding:110px 7%;
+}
 
-.section-title h2{ font-size:58px; margin-bottom:14px; letter-spacing:-2px; }
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
 
-.section-title p{ color:#94a3b8; font-size:16px; }
+.section-title h2{
+font-size:58px;
+margin-bottom:14px;
+letter-spacing:-2px;
+}
 
-.services, .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
+.section-title p{
+color:#94a3b8;
+font-size:16px;
+}
 
-.card{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:30px; padding:35px; transition:0.4s; position:relative; overflow:hidden; }
+.services,
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
 
-.card::before{ content:''; position:absolute; inset:0; background:linear-gradient(135deg,transparent,rgba(255,255,255,0.03)); }
+.card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:30px;
+padding:35px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
 
-.card:hover{ transform:translateY(-10px); box-shadow:0 20px 60px rgba(0,0,0,0.45); }
+.card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,transparent,rgba(255,255,255,0.03));
+}
 
-.card-number{ font-size:14px; color:#60a5fa; margin-bottom:18px; font-weight:700; }
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
 
-.card h3{ font-size:28px; margin-bottom:15px; }
+.card-number{
+font-size:14px;
+color:#60a5fa;
+margin-bottom:18px;
+font-weight:700;
+}
 
-.card p{ color:#94a3b8; line-height:1.9; }
+.card h3{
+font-size:28px;
+margin-bottom:15px;
+}
 
-.project-image{ height:220px; border-radius:22px; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:800; margin-bottom:24px; background:linear-gradient(135deg,#2563eb,#9333ea,#ec4899); }
+.card p{
+color:#94a3b8;
+line-height:1.9;
+}
 
-.contact{ max-width:1000px; margin:auto; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:70px 40px; border-radius:40px; }
+.project-image{
+height:220px;
+border-radius:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:800;
+margin-bottom:24px;
+background:linear-gradient(135deg,#2563eb,#9333ea,#ec4899);
+}
 
-.contact h2{ font-size:64px; margin-bottom:20px; letter-spacing:-2px; }
+.contact{
+max-width:1000px;
+margin:auto;
+text-align:center;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+padding:70px 40px;
+border-radius:40px;
+}
 
-.contact p{ max-width:720px; margin:auto; line-height:1.9; color:#94a3b8; margin-bottom:40px; }
+.contact h2{
+font-size:64px;
+margin-bottom:20px;
+letter-spacing:-2px;
+}
 
-.contact-links{ display:flex; justify-content:center; gap:18px; flex-wrap:wrap; }
+.contact p{
+max-width:720px;
+margin:auto;
+line-height:1.9;
+color:#94a3b8;
+margin-bottom:40px;
+}
 
-.contact-links a{ padding:16px 28px; text-decoration:none; color:white; font-weight:600; border-radius:18px; background:linear-gradient(90deg,#3b82f6,#9333ea); transition:0.35s; }
+.contact-links{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+}
 
-.contact-links a:hover{ transform:translateY(-5px); }
+.contact-links a{
+padding:16px 28px;
+text-decoration:none;
+color:white;
+font-weight:600;
+border-radius:18px;
+background:linear-gradient(90deg,#3b82f6,#9333ea);
+transition:0.35s;
+}
 
-footer{ padding:30px; text-align:center; color:#64748b; border-top:1px solid rgba(255,255,255,0.08); }
+.contact-links a:hover{
+transform:translateY(-5px);
+}
 
-@media(max-width:768px){ .hero-text h1{ font-size:50px; letter-spacing:-2px; }
+footer{
+padding:30px;
+text-align:center;
+color:#64748b;
+border-top:1px solid rgba(255,255,255,0.08);
+}
 
-.section-title h2, .contact h2{ font-size:40px; }
+@media(max-width:768px){
 
-.hero, section{ padding-left:5%; padding-right:5%; }
+.hero-text h1{
+font-size:50px;
+letter-spacing:-2px;
+}
 
-.navbar{ padding:16px 5%; }
+.section-title h2,
+.contact h2{
+font-size:40px;
+}
 
-.nav-links{ gap:15px; }
+.hero,
+section{
+padding-left:5%;
+padding-right:5%;
+}
 
-.nav-links a{ font-size:13px; }
+.navbar{
+padding:16px 5%;
+}
 
-.hero-card{ width:100%; } } </style>
+.nav-links{
+gap:15px;
+}
 
+.nav-links a{
+font-size:13px;
+}
+
+.hero-card{
+width:100%;
+}
+
+}
+
+</style>
 </head>
-<body><nav class="navbar">
+
+<body>
+
+<nav class="navbar">
 <div class="logo">Aryan Keer</div>
+
 <div class="nav-links">
 <a href="#services">Services</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
-</nav><section class="hero">
+</nav>
+
+<section class="hero">
+
 <div class="hero-text">
+
 <div class="badge">
 <div class="dot"></div>
 Available For Freelance Projects
-</div><h1>
-Designing Fast & Beautiful<br><span class="gradient">Websites That Stand Out</span>
-</h1><p>
+</div>
+
+<h1>
+Designing Fast & Beautiful<br>
+<span class="gradient">Websites That Stand Out</span>
+</h1>
+
+<p>
 Modern websites with smooth UI, clean animations and mobile responsive layouts for creators, brands and businesses.
-</p><div class="btns">
+</p>
+
+<div class="btns">
 <a href="#contact" class="btn primary-btn">Hire Me</a>
 <a href="#projects" class="btn secondary-btn">View Work</a>
 </div>
-</div><div class="hero-card">
-<img src="https://ui-avatars.com/api/?name=Aryan+Keer&background=111111&color=ffffff&size=256" alt="Aryan">
+
+</div>
+
+<div class="hero-card">
+
+<img src="https://ui-avatars.com/api/?name=Aryan+Keer&background=111111&color=ffffff&size=256">
+
 <h2>Aryan Keer</h2>
-<p>Modern Website Developer</p><div class="mini-stats">
+
+<p>Modern Website Developer</p>
+
+<div class="mini-stats">
+
 <div class="stat">
 <h3>50+</h3>
 <p>Projects</p>
-</div><div class="stat">
+</div>
+
+<div class="stat">
 <h3>24h</h3>
 <p>Delivery</p>
 </div>
+
 </div>
+
 </div>
-</section><section id="services">
+
+</section>
+
+<section id="services">
+
 <div class="section-title">
 <h2>Services</h2>
 <p>Professional web solutions with premium modern design</p>
-</div><div class="services">
+</div>
+
+<div class="services">
+
 <div class="card">
 <div class="card-number">01</div>
 <h3>Portfolio Websites</h3>
 <p>Modern personal portfolio websites for creators, influencers, gamers and businesses with fully responsive layouts.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="card-number">02</div>
 <h3>Landing Pages</h3>
 <p>High quality landing pages with smooth UI, modern animations and mobile optimized performance.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="card-number">03</div>
 <h3>Gaming UI Design</h3>
 <p>Premium dark gaming interfaces inspired by modern apps and professional mobile experiences.</p>
 </div>
+
 </div>
-</section><section id="projects">
+
+</section>
+
+<section id="projects">
+
 <div class="section-title">
 <h2>Featured Work</h2>
 <p>Creative premium projects designed for modern brands</p>
-</div><div class="projects">
+</div>
+
+<div class="projects">
+
 <div class="card">
 <div class="project-image">COUPLE SITE</div>
 <h3>Love Website</h3>
 <p>Beautiful responsive romantic website with smooth animations and aesthetic design.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="project-image">GAME UI</div>
 <h3>Gaming Dashboard</h3>
 <p>Modern mobile gaming interface with premium dark UI and responsive layout.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="project-image">PORTFOLIO</div>
 <h3>Creator Portfolio</h3>
 <p>Professional clean portfolio website designed for influencers and creators.</p>
 </div>
+
 </div>
-</section><section id="contact">
+
+</section>
+
+<section id="contact">
+
 <div class="contact">
+
 <h2>Let's Build Something Amazing</h2>
+
 <p>
 Need a premium website for your business, personal brand or gaming project?
 Let's create a modern experience that stands out.
-</p><div class="contact-links">
+</p>
+
+<div class="contact-links">
+
 <a href="https://wa.me/917000482653">WhatsApp Me</a>
+
 <a href="mailto:sisodiyaaryan926@gmail.com">Send Email</a>
+
 </div>
+
 </div>
-</section><footer>
+
+</section>
+
+<footer>
 © 2026 Aryan Keer • Premium Portfolio Website
-</footer></body>
+</footer>
+
+</body>
 </html>
