@@ -5,24 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aryan Keer | Modern Website Developer</title>
+<title>Aryan Website Developer | Aryan Keer</title>
 
-<meta name="description" content="Aryan Keer is a modern website developer creating responsive portfolio websites, gaming UI, landing pages and premium web designs.">
+<meta name="description" content="Aryan Keer is a premium website developer creating modern responsive portfolio websites, gaming UI and landing pages.">
 
-<meta name="keywords" content="Aryan Keer, Aryan website developer, portfolio website, gaming UI design, HTML CSS developer, responsive website, frontend developer">
+<meta name="keywords" content="Aryan Keer, Aryan Website Developer, website developer, portfolio website, gaming UI, responsive websites, frontend developer">
 
 <meta name="author" content="Aryan Keer">
 
 <meta name="robots" content="index, follow">
 
 <meta name="google-site-verification" content="FKeZ2i_pXNDLdsG_6Tad8ayuQLwzLLNhPvZgIbVKLw8" />
-
-<meta property="og:title" content="Aryan Keer | Premium Web Developer">
-<meta property="og:description" content="Modern responsive websites with premium UI and smooth design experience.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aryanljj.github.io/MR--Aryan_Lakk/">
-
-<link rel="canonical" href="https://aryanljj.github.io/MR--Aryan_Lakk/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,19 +36,21 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
+background:#040816;
 color:white;
 overflow-x:hidden;
 }
 
+/* BACKGROUND */
+
 body::before{
 content:'';
 position:fixed;
-width:500px;
-height:500px;
-background:#2563eb22;
-filter:blur(140px);
-top:-200px;
+width:600px;
+height:600px;
+background:#2563eb33;
+filter:blur(160px);
+top:-250px;
 right:-100px;
 z-index:-1;
 }
@@ -63,33 +58,35 @@ z-index:-1;
 body::after{
 content:'';
 position:fixed;
-width:500px;
-height:500px;
-background:#9333ea22;
-filter:blur(140px);
-bottom:-200px;
+width:600px;
+height:600px;
+background:#9333ea33;
+filter:blur(160px);
+bottom:-250px;
 left:-100px;
 z-index:-1;
 }
 
+/* NAVBAR */
+
 .navbar{
 position:fixed;
-width:100%;
 top:0;
-padding:18px 7%;
+left:0;
+width:100%;
+padding:20px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.55);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,0.07);
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,0.08);
 z-index:1000;
 }
 
 .logo{
-font-size:28px;
+font-size:32px;
 font-weight:800;
-letter-spacing:-1px;
 background:linear-gradient(90deg,#60a5fa,#a855f7);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -97,12 +94,12 @@ background:linear-gradient(90deg,#60a5fa,#a855f7);
 
 .nav-links{
 display:flex;
-gap:28px;
+gap:35px;
 }
 
 .nav-links a{
 text-decoration:none;
-color:#cbd5e1;
+color:#d1d5db;
 font-size:15px;
 transition:0.3s;
 }
@@ -111,48 +108,23 @@ transition:0.3s;
 color:white;
 }
 
+/* HERO */
+
 .hero{
 min-height:100vh;
-display:flex;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
 align-items:center;
-justify-content:space-between;
-padding:150px 7% 80px;
-gap:70px;
-flex-wrap:wrap;
-}
-
-.hero-text{
-flex:1;
-min-width:300px;
-}
-
-.badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:12px 18px;
-border-radius:50px;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-margin-bottom:28px;
-color:#93c5fd;
-font-size:14px;
-}
-
-.dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:#22c55e;
-box-shadow:0 0 12px #22c55e;
+gap:80px;
+padding:140px 7% 90px;
 }
 
 .hero-text h1{
-font-size:82px;
+font-size:95px;
 line-height:1;
-letter-spacing:-4px;
-margin-bottom:25px;
 font-weight:800;
+letter-spacing:-5px;
+margin-bottom:30px;
 }
 
 .gradient{
@@ -162,250 +134,377 @@ background:linear-gradient(90deg,#60a5fa,#a855f7,#ec4899);
 }
 
 .hero-text p{
-max-width:650px;
-line-height:1.9;
-font-size:17px;
+font-size:18px;
+line-height:2;
+max-width:700px;
 color:#94a3b8;
-margin-bottom:38px;
+margin-bottom:40px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 20px;
+border-radius:50px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+margin-bottom:30px;
+color:#93c5fd;
+font-size:14px;
+backdrop-filter:blur(12px);
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#22c55e;
+box-shadow:0 0 15px #22c55e;
 }
 
 .btns{
 display:flex;
-gap:18px;
+gap:20px;
 flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 30px;
+padding:17px 32px;
+border-radius:18px;
 text-decoration:none;
 font-weight:600;
-border-radius:16px;
 transition:0.35s;
 }
 
 .primary-btn{
 background:linear-gradient(90deg,#3b82f6,#9333ea);
 color:white;
-box-shadow:0 10px 35px rgba(59,130,246,0.35);
+box-shadow:0 12px 35px rgba(59,130,246,0.35);
 }
 
 .secondary-btn{
-background:rgba(255,255,255,0.04);
-color:white;
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
+color:white;
+backdrop-filter:blur(10px);
 }
 
 .btn:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
+/* HERO CARD */
+
 .hero-card{
-width:370px;
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
-padding:35px;
-border-radius:32px;
-box-shadow:0 25px 60px rgba(0,0,0,0.4);
+backdrop-filter:blur(22px);
+padding:40px;
+border-radius:38px;
+box-shadow:0 25px 70px rgba(0,0,0,0.45);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 .hero-card img{
-width:130px;
-height:130px;
+width:190px;
+height:190px;
+border-radius:50%;
+object-fit:cover;
 display:block;
-margin:auto;
-border-radius:28px;
-margin-bottom:25px;
+margin-bottom:30px;
+padding:6px;
+background:rgba(255,255,255,0.08);
+box-shadow:
+0 0 25px rgba(59,130,246,0.45),
+0 0 60px rgba(168,85,247,0.35);
+border:2px solid rgba(255,255,255,0.15);
 }
 
 .hero-card h2{
-text-align:center;
-font-size:30px;
-margin-bottom:10px;
+font-size:36px;
+margin-bottom:12px;
 }
 
 .hero-card p{
-text-align:center;
 color:#94a3b8;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .mini-stats{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px;
+gap:20px;
+width:100%;
 }
 
 .stat{
-background:#0f0f0f;
-padding:20px;
-border-radius:20px;
-text-align:center;
+background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.06);
+padding:24px;
+border-radius:24px;
+text-align:center;
+backdrop-filter:blur(10px);
 }
 
 .stat h3{
-font-size:34px;
+font-size:38px;
 margin-bottom:6px;
 background:linear-gradient(90deg,#60a5fa,#a855f7);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
+/* SECTION */
+
 section{
-padding:110px 7%;
+padding:120px 7%;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:70px;
+margin-bottom:75px;
 }
 
 .section-title h2{
-font-size:58px;
-margin-bottom:14px;
-letter-spacing:-2px;
+font-size:65px;
+letter-spacing:-3px;
+margin-bottom:15px;
 }
 
 .section-title p{
 color:#94a3b8;
-font-size:16px;
+font-size:17px;
 }
 
-.services,
+/* PROJECTS */
+
 .projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+gap:35px;
+}
+
+.project-card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:20px;
+border-radius:34px;
+transition:0.4s;
+overflow:hidden;
+}
+
+.project-card:hover{
+transform:translateY(-12px);
+box-shadow:0 25px 70px rgba(0,0,0,0.45);
+}
+
+.project-image{
+height:240px;
+overflow:hidden;
+border-radius:24px;
+margin-bottom:25px;
+}
+
+.project-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.project-card:hover img{
+transform:scale(1.08);
+}
+
+.project-content h3{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.project-content p{
+color:#94a3b8;
+line-height:1.9;
+margin-bottom:25px;
+}
+
+.project-btn{
+display:inline-block;
+padding:14px 26px;
+border-radius:16px;
+text-decoration:none;
+background:linear-gradient(90deg,#3b82f6,#9333ea);
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+.project-btn:hover{
+transform:translateY(-5px);
+}
+
+/* CONTACT */
+
+.contact{
+max-width:1100px;
+margin:auto;
+text-align:center;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:80px 40px;
+border-radius:42px;
+}
+
+.contact h2{
+font-size:70px;
+margin-bottom:20px;
+letter-spacing:-3px;
+}
+
+.contact p{
+max-width:750px;
+margin:auto;
+line-height:2;
+color:#94a3b8;
+margin-bottom:45px;
+}
+
+.contact-boxes{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:28px;
+margin-top:50px;
 }
 
-.card{
-background:rgba(255,255,255,0.04);
+.contact-card{
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
-border-radius:30px;
+backdrop-filter:blur(20px);
 padding:35px;
+border-radius:30px;
 transition:0.4s;
 position:relative;
 overflow:hidden;
 }
 
-.card::before{
+.contact-card::before{
 content:'';
 position:absolute;
-inset:0;
-background:linear-gradient(135deg,transparent,rgba(255,255,255,0.03));
+width:180px;
+height:180px;
+background:rgba(59,130,246,0.18);
+border-radius:50%;
+top:-80px;
+right:-80px;
+filter:blur(20px);
 }
 
-.card:hover{
+.contact-card:hover{
 transform:translateY(-10px);
-box-shadow:0 20px 60px rgba(0,0,0,0.45);
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
-.card-number{
-font-size:14px;
-color:#60a5fa;
-margin-bottom:18px;
-font-weight:700;
-}
-
-.card h3{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.card p{
-color:#94a3b8;
-line-height:1.9;
-}
-
-.project-image{
-height:220px;
+.contact-icon{
+width:75px;
+height:75px;
 border-radius:22px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:30px;
-font-weight:800;
-margin-bottom:24px;
-background:linear-gradient(135deg,#2563eb,#9333ea,#ec4899);
+background:linear-gradient(135deg,#3b82f6,#9333ea);
+margin-bottom:25px;
+box-shadow:0 10px 35px rgba(59,130,246,0.35);
 }
 
-.contact{
-max-width:1000px;
-margin:auto;
-text-align:center;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-padding:70px 40px;
-border-radius:40px;
+.contact-card h3{
+font-size:32px;
+margin-bottom:15px;
 }
 
-.contact h2{
-font-size:64px;
-margin-bottom:20px;
-letter-spacing:-2px;
-}
-
-.contact p{
-max-width:720px;
-margin:auto;
-line-height:1.9;
+.contact-card p{
 color:#94a3b8;
-margin-bottom:40px;
+line-height:1.8;
+margin-bottom:22px;
 }
 
-.contact-links{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-}
-
-.contact-links a{
-padding:16px 28px;
-text-decoration:none;
-color:white;
+.contact-card span{
 font-weight:600;
-border-radius:18px;
-background:linear-gradient(90deg,#3b82f6,#9333ea);
-transition:0.35s;
+background:linear-gradient(90deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.contact-links a:hover{
-transform:translateY(-5px);
-}
+/* FOOTER */
 
 footer{
-padding:30px;
+padding:35px;
 text-align:center;
 color:#64748b;
 border-top:1px solid rgba(255,255,255,0.08);
 }
 
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.hero-text{
+text-align:center;
+}
+
+.hero-text p{
+margin:auto;
+margin-bottom:40px;
+}
+
+.btns{
+justify-content:center;
+}
+
+}
+
 @media(max-width:768px){
 
+.hero{
+padding:130px 5% 70px;
+gap:50px;
+}
+
+section{
+padding:90px 5%;
+}
+
 .hero-text h1{
-font-size:50px;
+font-size:58px;
 letter-spacing:-2px;
 }
 
 .section-title h2,
 .contact h2{
-font-size:40px;
-}
-
-.hero,
-section{
-padding-left:5%;
-padding-right:5%;
+font-size:42px;
 }
 
 .navbar{
-padding:16px 5%;
+padding:18px 5%;
+}
+
+.logo{
+font-size:24px;
 }
 
 .nav-links{
-gap:15px;
+gap:16px;
 }
 
 .nav-links a{
@@ -413,7 +512,29 @@ font-size:13px;
 }
 
 .hero-card{
-width:100%;
+padding:28px;
+}
+
+.hero-card img{
+width:150px;
+height:150px;
+}
+
+.project-content h3{
+font-size:26px;
+}
+
+.contact-card{
+padding:28px;
+}
+
+.contact-card h3{
+font-size:26px;
+}
+
+.contact-icon{
+width:65px;
+height:65px;
 }
 
 }
@@ -424,13 +545,16 @@ width:100%;
 <body>
 
 <nav class="navbar">
-<div class="logo">Aryan Keer</div>
+
+<div class="logo">
+Aryan Keer
+</div>
 
 <div class="nav-links">
-<a href="#services">Services</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
+
 </nav>
 
 <section class="hero">
@@ -443,12 +567,12 @@ Available For Freelance Projects
 </div>
 
 <h1>
-Designing Fast & Beautiful<br>
-<span class="gradient">Websites That Stand Out</span>
+Premium Modern<br>
+<span class="gradient">Website Developer</span>
 </h1>
 
 <p>
-Modern websites with smooth UI, clean animations and mobile responsive layouts for creators, brands and businesses.
+I create modern responsive websites with premium glassmorphism UI, smooth animations and attractive user experiences for creators, brands and businesses.
 </p>
 
 <div class="btns">
@@ -460,11 +584,11 @@ Modern websites with smooth UI, clean animations and mobile responsive layouts f
 
 <div class="hero-card">
 
-<img src="https://ui-avatars.com/api/?name=Aryan+Keer&background=111111&color=ffffff&size=256">
+<img src="https://i.ibb.co/twyWXNpS/IMG-20260522-224419.jpg" alt="Aryan Logo">
 
-<h2>Aryan Keer</h2>
+<h2>Aryan Website</h2>
 
-<p>Modern Website Developer</p>
+<p>Premium Website Developer</p>
 
 <div class="mini-stats">
 
@@ -484,37 +608,6 @@ Modern websites with smooth UI, clean animations and mobile responsive layouts f
 
 </section>
 
-<section id="services">
-
-<div class="section-title">
-<h2>Services</h2>
-<p>Professional web solutions with premium modern design</p>
-</div>
-
-<div class="services">
-
-<div class="card">
-<div class="card-number">01</div>
-<h3>Portfolio Websites</h3>
-<p>Modern personal portfolio websites for creators, influencers, gamers and businesses with fully responsive layouts.</p>
-</div>
-
-<div class="card">
-<div class="card-number">02</div>
-<h3>Landing Pages</h3>
-<p>High quality landing pages with smooth UI, modern animations and mobile optimized performance.</p>
-</div>
-
-<div class="card">
-<div class="card-number">03</div>
-<h3>Gaming UI Design</h3>
-<p>Premium dark gaming interfaces inspired by modern apps and professional mobile experiences.</p>
-</div>
-
-</div>
-
-</section>
-
 <section id="projects">
 
 <div class="section-title">
@@ -524,22 +617,48 @@ Modern websites with smooth UI, clean animations and mobile responsive layouts f
 
 <div class="projects">
 
-<div class="card">
-<div class="project-image">COUPLE SITE</div>
-<h3>Love Website</h3>
-<p>Beautiful responsive romantic website with smooth animations and aesthetic design.</p>
+<div class="project-card">
+<div class="project-image">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="project-content">
+<h3>Couple Website</h3>
+<p>Modern romantic website with smooth animations and aesthetic premium UI design.</p>
+<a href="#" class="project-btn">Live Preview</a>
+</div>
 </div>
 
-<div class="card">
-<div class="project-image">GAME UI</div>
+<div class="project-card">
+<div class="project-image">
+<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="project-content">
 <h3>Gaming Dashboard</h3>
-<p>Modern mobile gaming interface with premium dark UI and responsive layout.</p>
+<p>Premium dark gaming interface inspired by modern mobile gaming experiences.</p>
+<a href="#" class="project-btn">Live Preview</a>
+</div>
 </div>
 
-<div class="card">
-<div class="project-image">PORTFOLIO</div>
-<h3>Creator Portfolio</h3>
-<p>Professional clean portfolio website designed for influencers and creators.</p>
+<div class="project-card">
+<div class="project-image">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="project-content">
+<h3>Portfolio Website</h3>
+<p>Clean and modern portfolio website with smooth responsive premium layout.</p>
+<a href="#" class="project-btn">Live Preview</a>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="project-content">
+<h3>Personal Photo Website</h3>
+<p>Modern aesthetic personal photo showcase website with premium smooth design and stylish layout.</p>
+<a href="#" class="project-btn">Live Preview</a>
+</div>
 </div>
 
 </div>
@@ -557,11 +676,40 @@ Need a premium website for your business, personal brand or gaming project?
 Let's create a modern experience that stands out.
 </p>
 
-<div class="contact-links">
+<div class="contact-boxes">
 
-<a href="https://wa.me/917000482653">WhatsApp Me</a>
+<a href="https://wa.me/917000482653" class="contact-card">
 
-<a href="mailto:sisodiyaaryan926@gmail.com">Send Email</a>
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.79 11.79 0 0012.07 0C5.5 0 .14 5.36.14 11.93c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 005.77 1.47h.01c6.57 0 11.93-5.36 11.93-11.93 0-3.18-1.24-6.17-3.49-8.41z"/>
+</svg>
+</div>
+
+<h3>WhatsApp</h3>
+
+<p>Chat directly for premium websites and quick responses.</p>
+
+<span>Message Now →</span>
+
+</a>
+
+<a href="mailto:sisodiyaaryan926@gmail.com" class="contact-card">
+
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
+<path d="M12 13.065L.015 4.5A2.25 2.25 0 012.25 3h19.5a2.25 2.25 0 012.235 1.5L12 13.065z"/>
+<path d="M12 15.935L0 7.5V18a3 3 0 003 3h18a3 3 0 003-3V7.5l-12 8.435z"/>
+</svg>
+</div>
+
+<h3>Gmail</h3>
+
+<p>Send project details and business inquiries anytime.</p>
+
+<span>Send Mail →</span>
+
+</a>
 
 </div>
 
@@ -570,7 +718,7 @@ Let's create a modern experience that stands out.
 </section>
 
 <footer>
-© 2026 Aryan Keer • Premium Portfolio Website
+© 2026 Aryan Website Developer • All Rights Reserved
 </footer>
 
 </body>
